@@ -1,0 +1,1 @@
+Here extracted FAISS index will be saved

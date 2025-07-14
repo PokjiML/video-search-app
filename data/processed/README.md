@@ -1,0 +1,1 @@
+In this folder the videos metadata will be stores in .json files for each shot in each video

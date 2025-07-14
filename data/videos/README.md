@@ -1,0 +1,1 @@
+In this folder the original videos are stored which are used for information retrieval
