@@ -1,8 +1,12 @@
 # Video Search App
 
-The app that lets the user extract important information for videos database.  
-It extracts keyframes from every shot inside the video and analyse their contents.  
+The app that lets the user extract important information for videos database. It extracts keyframes from every shot inside the video and analyse their contents.  
+
 Based on the informations retrieved user can query and filter to find the specific fragment of the video from the whole database with high precision.
+
+
+![Screenshot from the Video Search System](app_demo.png "Screenshot from the Video Search System")
+*Fig 1. Screenshot from the Video Search System*
 
 ---
 
@@ -156,7 +160,6 @@ The submission to DRES via API was achieved with the python requests library whi
 The whole functionality is encapsulated inside the DresClient class inside dres_api.py which is imported by the app.py (the main program).
 Demonstration
 
-Fig 1. Screenshot from the Video Search System
 
 The Video Search system lets users filter the videos by detected objects inside them, brightness and dominating color of keyframes inside the videos.
 The user can also write the wanted video description and the videos will be ordered by the similarity to the given text.
