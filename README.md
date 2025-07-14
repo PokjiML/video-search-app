@@ -13,15 +13,19 @@ The project uses conda virtual environment for managing packages and libraries.
 The environment can be installed with conda via `environment.yml` file with command:
 ```bash
 conda env create -f environment.yml
-```bash
+```
 
 In order to run, the user should first activate the environment with:
 
+```bash
 conda activate video_search_env
+```
 
 And then, in the main folder where the app.py is, run the following command:
 
+```bash
 streamlit run app.py
+```
 
 The application will launch on localhost afterwards.
 Directory structure
@@ -56,13 +60,15 @@ On the left there will also be three filters to choose from:
 
 The videos will be sorted by the similarity.
 The user can open and play the videos and search the shots with a labeled timestamp.
-Technical Report
-1. Shot Detection
+
+
+## Technical Report
+### 1. Shot Detection
 
 The TransNetV2 model was used for boundary shot detection.
 Downloaded from the TransNetV2 repository.
 Inference was performed locally with tensorflow.
-2. Keyframe extraction
+### 2. Keyframe extraction
 
 TransNetV2 detected the shot boundaries.
 To select the best keyframe from every shot, CV2 was used.
@@ -73,7 +79,7 @@ sharpness = cv2.Laplacian(gray, cv2.CV_64F).var()  # Variance of Laplacian
 contrast = gray.std()
 score = sharpness + contrast * 0.05
 
-3. Content Based
+### 3. Content Based
 • CLIP
 
 Every keyframe in the database has the extracted embeddings from CLIP.
@@ -97,7 +103,7 @@ If the color is too dark (low Saturation) then the image is mapped to black/gray
 
 Yolov8n is used for object detection in each keyframe. The objects are saved in the database for every keyframe.
 User can later filter out the videos and shots based on the detected object inside them.
-4. Database
+### 4. Database
 
 The application uses SQLite database. Inside it the paths to the videos and keyframes are stored alongside their metadata.
 
@@ -138,12 +144,12 @@ Shots table stores columns such as:
     detected_objects
 
 For CLIP embeddings, they are stored as FAISS index which is a library especially designed for fast similarity search, especially on high dimensional vectors.
-5. Frontend
+### 5. Frontend
 
 The whole backend and frontend logic of the web app was built with python library Streamlit.
 
 The whole page functionality is inside the file app.py which uses many functions from the utils folder, and dres_api.py.
-6. API communication
+### 6. API communication
 
 The submission to DRES via API was achieved with the python requests library which directly sends information to the evaluation server after successful login.
 
@@ -157,11 +163,3 @@ The user can also write the wanted video description and the videos will be orde
 
 There’s also the option to login to DRES and to submit the selected video with start time and end time in milliseconds.
 
-
----
-
-If you'd like, I can also add:
-- Table of contents
-- Badges (e.g., Python version, license)
-- Code highlighting
-Just let me know!
