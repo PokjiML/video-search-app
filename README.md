@@ -13,6 +13,7 @@ The project uses conda virtual environment for managing packages and libraries.
 The environment can be installed with conda via `environment.yml` file with command:
 ```bash
 conda env create -f environment.yml
+```bash
 
 In order to run, the user should first activate the environment with:
 
